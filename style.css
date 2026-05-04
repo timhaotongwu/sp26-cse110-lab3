@@ -1,0 +1,182 @@
+/* =========================
+   CSS VARIABLES + FALLBACK
+========================= */
+:root {
+  --main-color: #ff7a18;
+  --secondary-color: #1e293b;
+}
+
+/* =========================
+   UNIVERSAL SELECTOR
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+/* =========================
+   ELEMENT SELECTOR
+========================= */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 247, 237);
+  color: var(--secondary-color, black);
+  margin: 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  background-color: var(--main-color, orange);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =========================
+   NAV (INLINE / BLOCK)
+========================= */
+nav a {
+  display: inline-block;
+  margin: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+/* =========================
+   HOVER + ACTIVE (PSEUDO)
+========================= */
+nav a:hover {
+  color: yellow;
+}
+
+nav a:active {
+  color: red;
+}
+
+/* =========================
+   CLASS SELECTOR
+========================= */
+.section-box {
+  background-color: #fff;
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+/* =========================
+   ID SELECTOR
+========================= */
+#attendance {
+  background-color: hsl(30, 100%, 95%);
+}
+
+/* =========================
+   ATTRIBUTE SELECTOR
+========================= */
+input[type="text"] {
+  border: 2px solid blue;
+}
+
+/* =========================
+   DESCENDANT COMBINATOR
+========================= */
+section p {
+  line-height: 1.5;
+}
+
+/* =========================
+   CHILD COMBINATOR
+========================= */
+section > h2 {
+  color: #ff7a18;
+}
+
+/* =========================
+   ADJACENT SIBLING
+========================= */
+h2 + p {
+  font-style: italic;
+}
+
+/* =========================
+   GENERAL SIBLING
+========================= */
+h2 ~ ul {
+  background-color: #fef3c7;
+}
+
+/* =========================
+   FLEXBOX
+========================= */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* =========================
+   GRID
+========================= */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* =========================
+   SIZING
+========================= */
+img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+/* =========================
+   POSITION
+========================= */
+footer {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+}
+
+/* =========================
+   DISPLAY TYPES
+========================= */
+span {
+  display: inline;
+}
+
+div {
+  display: block;
+}
+
+/* =========================
+   MEDIA QUERY (RESPONSIVE)
+========================= */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   NEW SELECTOR :has()
+========================= */
+section:has(ul) {
+  border: 3px dashed purple;
+}
+
+/* =========================
+   SELECTOR LIST
+========================= */
+h1, h2, h3 {
+  font-weight: bold;
+}
