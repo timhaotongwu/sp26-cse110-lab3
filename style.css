@@ -4,6 +4,7 @@
 :root {
   --main-color: #ff7a18;
   --secondary-color: #1e293b;
+  --light-bg: #fff7ed;
 }
 
 /* =========================
@@ -17,25 +18,44 @@
    ELEMENT SELECTOR
 ========================= */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   background-color: rgb(255, 247, 237);
   color: var(--secondary-color, black);
   margin: 0;
+  min-width: 320px;
 }
 
 /* =========================
-   HEADER
+   HEADER + POSITION
 ========================= */
 header {
   background-color: var(--main-color, orange);
   color: white;
   text-align: center;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 /* =========================
-   NAV (INLINE / BLOCK)
+   SELECTOR LIST
 ========================= */
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+/* =========================
+   NAV + FLEXBOX
+========================= */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 nav a {
   display: inline-block;
   margin: 5px;
@@ -43,9 +63,6 @@ nav a {
   color: white;
 }
 
-/* =========================
-   HOVER + ACTIVE (PSEUDO)
-========================= */
 nav a:hover {
   color: yellow;
 }
@@ -55,14 +72,48 @@ nav a:active {
 }
 
 /* =========================
-   CLASS SELECTOR
+   MAIN GRID
+========================= */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* =========================
+   CLASS SELECTOR + BOX MODEL
 ========================= */
 .section-box {
-  background-color: #fff;
+  background-color: #ffffff;
+
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
   margin: 20px;
+
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
   padding: 15px;
+
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
   border: 2px solid black;
   border-radius: 10px;
+
+  width: 90%;
+  max-width: 650px;
+  min-width: 250px;
+}
+
+/* =========================
+   COMBINING TWO SELECTORS
+========================= */
+section.section-box {
+  background-color: color-mix(in srgb, white 85%, orange 15%);
 }
 
 /* =========================
@@ -94,53 +145,17 @@ section > h2 {
 }
 
 /* =========================
-   ADJACENT SIBLING
+   ADJACENT SIBLING COMBINATOR
 ========================= */
 h2 + p {
   font-style: italic;
 }
 
 /* =========================
-   GENERAL SIBLING
+   GENERAL SIBLING COMBINATOR
 ========================= */
 h2 ~ ul {
   background-color: #fef3c7;
-}
-
-/* =========================
-   FLEXBOX
-========================= */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* =========================
-   GRID
-========================= */
-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* =========================
-   SIZING
-========================= */
-img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-}
-
-/* =========================
-   POSITION
-========================= */
-footer {
-  position: relative;
-  text-align: center;
-  padding: 10px;
 }
 
 /* =========================
@@ -154,17 +169,53 @@ div {
   display: block;
 }
 
-/* =========================
-   MEDIA QUERY (RESPONSIVE)
-========================= */
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr;
-  }
+footer p {
+  display: inline-block;
+}
 
-  header {
-    font-size: 14px;
-  }
+/* =========================
+   SIZING
+========================= */
+img {
+  width: 100%;
+  max-width: 300px;
+  min-width: 150px;
+  height: auto;
+}
+
+video {
+  width: 20em;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   FORM
+========================= */
+form {
+  width: 80%;
+  max-width: 600px;
+  min-width: 250px;
+}
+
+button {
+  background-color: color-mix(in srgb, orange 80%, white 20%);
+  color: #000000;
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  background-color: orange;
+}
+
+/* =========================
+   POSITION
+========================= */
+footer {
+  position: relative;
+  text-align: center;
+  padding: 10px;
 }
 
 /* =========================
@@ -175,8 +226,27 @@ section:has(ul) {
 }
 
 /* =========================
-   SELECTOR LIST
+   NESTED SELECTOR
 ========================= */
-h1, h2, h3 {
-  font-weight: bold;
+section {
+  & h3 {
+    color: hsla(24, 100%, 50%, 0.9);
+  }
+}
+
+/* =========================
+   RESPONSIVE MEDIA QUERY
+========================= */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    font-size: 14px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
 }
